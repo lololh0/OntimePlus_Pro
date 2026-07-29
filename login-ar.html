@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Login</title>
+  <style>
+    * {
+      font-family: "Segoe UI", Tahoma;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    .page {
+      height: 100vh;
+      background: linear-gradient(135deg, #1fa2ff, #12d8fa, #a6ffcb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-card {
+      width: 380px;
+      height: 580px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 20px 40px rgba(0,0,0,.15);
+      overflow: hidden;
+      position: relative;
+
+  /* زخرفة أعلى الكارد فقط */
+  background-image: url("33.png");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% 115px;
+    }
+
+.header {
+  width: 300px;
+  height: 80px;
+}
+
+.header h3 {
+  margin-bottom: 5px;
+  font-size: 16px;    /* حجم الخط */
+  line-height: 0px;  /* ارتفاع السطر */
+  color: #7a55a6;
+}
+    .header p {
+      font-size: 13px;
+      color: #7a55a6;
+    }
+
+    form {
+      margin-top: 20px;
+      text-align: right;
+    }
+
+    label {
+      font-size: 13px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #1fa2ff;
+      box-shadow: 0 0 0 2px rgba(31,162,255,0.15);
+    }
+
+    button {
+      width: 100%;
+      padding: 11px;
+      border: none;
+      border-radius: 6px;
+      background: #0b4f6c;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.1s ease;
+    }
+
+    button:hover {
+      background: #083a4f;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .forgot {
+      display: block;
+      margin: 12px auto 0; /* توسيط الرابط داخل الفورم */
+      font-size: 13px;
+      color: #666;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #666;
+      text-align: center;
+    }
+
+    .footer .code {
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    .logo-footer {
+      width: 55px;
+      height: auto;
+      display: block;
+      margin: 0px auto 0;
+    }
+
+    .lang-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .lang-line span {
+      font-size: 13px;
+      color: #444;
+    }
+
+.lang-line span.faded {
+  color: #fff ;
+}
+
+
+
+    .lang-line img {
+      width: 16px;
+      height: auto;
+    }
+
+
+    .login-logo img{
+      width: 55px;
+      margin-top: -20px;
+}
+
+
+
+      /* الصورة الثانية أسفل الكارد */
+.bottom-image {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.bottom-image img {
+  height: 60px; /* ارتفاع الصورة */
+  width: auto;
+}
+
+
+          /* ====== حقل كلمة المرور مع زر العين ====== */
+
+    .password-wrapper {
+      position: relative;
+    }
+
+    .password-wrapper input {
+      padding-left: 40px;
+    }
+
+.toggle-password {
+  position: absolute;
+  left: 10px; /* أيقونة على اليمين للـ RTL */
+  top: 50%;
+  transform: translateY(-80%);
+  cursor: pointer;
+  font-size: 12px; /* حجم الأيقونة */
+  color: #707070;
+}
+.toggle-password:hover {
+  color: #707070;
+}
+
+    /* ======================================== */
+
+      .lang-line a{
+  font-size: 13px;
+  color: #444;
+  text-decoration: none;
+}
+
+.lang-line a:hover{
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+
+<div class="page">
+  <div class="login-card">
+
+    <div class="header">
+      <h3>مرحباً مجدداً!</h3>
+      <p>قم بتسجيل الدخول لاستخدام نظام<br>إدارة الحضور والانصراف.</p>
+    </div>
+
+          <div class="login-logo">
+  <img src="3.png">
+</div>
+
+    <form onsubmit="return false;">
+      <label>اسم المستخدم</label>
+      <input type="text" placeholder="ادخل اسم المستخدم">
+
+      <label>كلمة السر</label>
+<div class="password-wrapper">
+  <input type="password" id="password" placeholder="ادخل كلمة المرور">
+    <i class="fas fa-eye toggle-password" id="toggleIcon" onclick="togglePassword()"></i>
+</div>
+
+      <button type="submit">تسجيل دخول</button>
+
+      <!-- رابط نسيت كلمة السر داخل الفورم وبالمنتصف -->
+      <a href="#" class="forgot">نسيت كلمة السر؟</a>
+    </form>
+
+      <div class="footer">
+    <div class="lang-line">
+      <span class="faded">0</span>
+      <a href="login-en.html">English</a>
+      <img src="2.png" alt="Language">
+    </div>
+
+      <p class="code">631579</p>
+      <small>عدد تسجيلات الدخول للنظام</small>
+
+      <img src="1.png" alt="Logo" class="logo-footer">
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+function togglePassword() {
+  const passwordInput = document.getElementById("password");
+  const toggleIcon = document.getElementById("toggleIcon");
+
+if (passwordInput.type === "password") {
+    passwordInput.type = "text"; // اجعل كلمة السر مرئية
+    toggleIcon.classList.remove("fa-eye");      // شيل أيقونة العين المفتوحة
+    toggleIcon.classList.add("fa-eye-slash");   // ضع أيقونة العين المغلقة مع الخط
+} else {
+    passwordInput.type = "password";            // اجعل كلمة السر مخفية
+    toggleIcon.classList.remove("fa-eye-slash");// شيل أيقونة العين المغلقة
+    toggleIcon.classList.add("fa-eye");         // ضع أيقونة العين المفتوحة
+}
+}
+</script>
+
+</body>
+</html>
